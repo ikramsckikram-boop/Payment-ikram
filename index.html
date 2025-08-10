@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Ikram OfficiaL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://wallpapercave.com/wp/wp12163010.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                        rgba(255, 0, 150, 0.1), 
+                        rgba(0, 200, 255, 0.1));
+            transform: rotate(45deg);
+            z-index: -1;
+            animation: shine 8s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-10%, -10%); }
+            100% { transform: rotate(45deg) translate(10%, 10%); }
+        }
+        
+        h1 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .payment-option {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .payment-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .payment-option h2 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .dana-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00B0FF, #0080FF);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 128, 255, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 128, 255, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0, 128, 255, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0, 128, 255, 0.4); }
+        }
+        
+        .dana-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 128, 255, 0.6);
+        }
+        
+        .qris-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .qris-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .dana-number {
+            background: rgba(0, 176, 255, 0.2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            display: inline-block;
+            animation: shake 5s infinite;
+            border: 1px solid rgba(0, 176, 255, 0.5);
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            1% { transform: translateX(-5px); }
+            2% { transform: translateX(5px); }
+            3% { transform: translateX(-5px); }
+            4% { transform: translateX(5px); }
+            5% { transform: translateX(0); }
+            100% { transform: translateX(0); }
+        }
+        
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 50px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatElement 15s infinite linear;
+        }
+        
+        @keyframes floatElement {
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(50px) rotate(360deg); opacity: 0; }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 200, 83, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment ikram offc</h1>
+        
+        <div class="payment-option">
+            <h2>Transfer DANA</h2>
+            <button class="dana-button" onclick="copyToClipboard('088744307719')">Klik untuk Transfer</button>
+            <div class="dana-number">
+                088744307719
+                <button class="copy-btn" onclick="copyToClipboard('088744307719')">Salin</button>
+            </div>
+        </div>
+        
+        <div class="payment-option">
+            <h2>QRIS AllPayment</h2>
+            <div class="qris-container">
+                <img src="https://files.catbox.moe/wnenwa.jpg" alt="QRIS AllPayment">
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="notification" id="notification">
+        Nomor berhasil disalin!
+    </div>
+    
+    <script>
+        // Create floating elements
+        const floatingElements = document.getElementById('floatingElements');
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.classList.add('floating-element');
+            
+            // Random size between 5px and 20px
+            const size = Math.random() * 15 + 5;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            
+            // Random position
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation duration between 10s and 25s
+            element.style.animationDuration = `${Math.random() * 15 + 10}s`;
+            
+            // Random delay
+            element.style.animationDelay = `${Math.random() * 5}s`;
+            
+            floatingElements.appendChild(element);
+        }
+        
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // Show notification
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
